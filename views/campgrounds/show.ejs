@@ -1,0 +1,94 @@
+<% layout('campgrounds/layouts/main') -%>
+
+    
+    
+ <div class="the successful message"><%=success%></div>   
+
+      <div class="row mt-5">
+          <div class="col-6 ">
+            <div class="card" >
+                <img src="<%= camps.image  %> " alt="campground image">
+                <div class="card-body">
+                  <h5 class="card-title"><%= camps.title %> </h5>
+                  <p class="card-text"><%= camps.description %> </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item text-muted"><%= camps.location %></li>
+                  <li class="list-group-item"><%= camps.price %> $</li>
+                  <li class="list-group-item">A third item</li>
+                </ul>
+                <div class="card-body">
+                    <a href="/campgrounds/<%= camps._id %>/edit " class="btn btn-primary">edit this</a>       
+                <form class="d-inline" method="post" action="/campgrounds/<%= camps._id  %>/delete?_method=DELETE ">
+                    <button class="btn btn-danger">delete</button>
+                  </form>
+                  
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                  </div>
+              </div>
+
+              
+              
+            
+          </div>
+          <div class="col-6">
+            <h2>Leave a Review</h2>
+            <form action="/campgrounds/<%= camps._id %>/review " method="POST" novalidate class="needvalidation">
+              <label  for="rating" class="form-label">rating</label>
+              <input class="form-range " type="range" min="1" max="5" name="rating" id="rating" required>
+              <label class="form-label" for="body">review:</label>
+              <textarea class="form-control" name="body" id="body" cols="30" rows="3" required></textarea>
+              <button class="btn btn-primary btn-lg mt-3" type="submit">submit</button>
+
+              
+            </form>
+
+                <div><% for (let i = 0; i < camps.rating.length; i++) { %> 
+                  
+            <div class="card mt-3" >
+              
+              <div class="card-body">
+                
+                  <h5 class="card-title">rating :<%= camps.rating[i].rating %> </h5>
+                 <p> review: <%= camps.rating[i].body %> </p>
+                 <form action="/campgrounds/<%= camps._id%>/review/<%= camps.rating[i]._id %>?_method=DELETE" method="POST" ><button type="submit" class="btn btn-danger btn-sm">delete</button></form>
+
+              </div>
+              
+              </div>
+            
+            <% } %> 
+            
+            
+        
+      </div>
+      
+      
+    
+    
+      <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+              'use strict'
+            
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              const forms = document.querySelectorAll('.needvalidation')
+            
+              // Loop over them and prevent submission
+              Array.from(forms)
+                .forEach(function (form) {
+                  form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                      event.preventDefault()
+                      event.stopPropagation()
+                    }
+            
+                    form.classList.add('was-validated')
+                  }, false)
+                })
+            })()
+            </script>
+        
+    

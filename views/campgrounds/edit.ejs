@@ -1,0 +1,62 @@
+<% layout('campgrounds/layouts/main') -%>
+
+
+<style> 
+    .form-label {
+        margin-top: 10px;
+
+        
+
+    }
+    button{
+        margin-top: 10px;
+    }
+
+    textarea{
+
+        margin-top: 10px;
+    }
+</style>
+    <div class="here" >
+        <h1 class="text-center">Campgrounds</h1>
+        <form action="/campgrounds/<%= id  %>/edit/?_method=PUT " method="POST" class="needvalidation" novalidate>
+            <h3><label for="title" class="form-label" >name</label></h3>
+            <input type="text" name="title" id="title" value="<%= camps.title %> " class="form-control" required>
+            <h3><label for="location" class="form-label">location</label></h3>
+            <input type="text" name="location" id="location" value="<%= camps.location %> " class="form-control" required> 
+            <h3><label for="Image" class="form-label">Enter the image url</label></h3>
+            <input type="url" name="image" id="Image" class="form-control" placeholder="enter an url" required >
+            <label for="price" class="form-label">Price</label>
+            <input type="text" name="price" id="price" class="form-control" value="<%= camps.price %> " required>
+            <h3><label for="description" class="form-label">enter new description</label></h3>
+            <textarea name="description" id="description" cols="30" rows="5" class="form-control" required><%= camps.description %> </textarea>
+
+            <button type="submit" class="btn btn-success btn-lg">submit</button>      
+        </form>
+    </div>
+
+    
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+          'use strict'
+        
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.querySelectorAll('.needvalidation')
+        
+          // Loop over them and prevent submission
+          Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+        
+                form.classList.add('was-validated')
+              }, false)
+            })
+        })()
+        </script>
+    
+

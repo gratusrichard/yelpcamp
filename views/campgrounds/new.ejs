@@ -1,0 +1,91 @@
+<% layout('campgrounds/layouts/main') -%>
+
+    
+        <style> 
+            .form-label {
+                margin-top: 10px;
+        
+                
+        
+            }
+            button{
+                margin-top: 10px;
+            }
+        
+            textarea{
+        
+                margin-top: 10px;
+            }
+        </style>
+            
+                <h1 class="text-center">New Campground</h1>
+                <form action="/campgrounds/new" method="POST" class="needvalidation" novalidate>
+                    <div class="row">
+                        <div class="md-4"><h3><label for="title" class="form-label" >name</label></h3>
+                            <input type="text" name="title" id="title"  class="form-control" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                              <div class="invalid-feedback">
+                                  please provide the right information
+                              </div>
+                        </div>
+                        <div class="md-4"><h3><label for="location" class="form-label">location</label></h3>
+                            <input type="text" name="location" id="location"   class="form-control" required> 
+                            <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                              <div class="invalid-feedback">
+                                  please provide the right information
+                              </div>
+                        </div>
+                        <div class="md-4"><h3><label for="Image" class="form-label">Enter the image url</label></h3>
+                            <input type="url" name="image" id="Image" class="form-control" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                              <div class="invalid-feedback">
+                                  please provide the right information
+                              </div>
+                        </div>
+                        <div class="md-4"><h3><label for="price" class="form-label">Price</label></h3>
+                            <input type="text" name="price" id="price" class="form-control" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                              <div class="invalid-feedback">
+                                  please provide the right information
+                              </div>
+                        </div>
+                        <div class="md-4"><h3><label for="description" class="form-label">enter new description</label></h3>
+                            <textarea name="description" id="description" cols="30" rows="5" class="form-control" required></textarea>
+                            <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                              <div class="invalid-feedback">
+                                  please provide the right information
+                              </div>
+                        </div>
+                            <div class="md-4"><button class="btn btn-success btn-lg">submit</button>      
+                            </div>
+
+
+
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        
+                </form>
+            
+        
+            
+    </form>
+    
+
+    
+        

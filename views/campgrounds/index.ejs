@@ -1,0 +1,35 @@
+
+<% layout('campgrounds/layouts/main') -%>
+
+
+<h1>Campgrounds</h1>
+
+    
+        <% for (let i = 0; i < camps.length; i++) { %> 
+            <div class="card ">
+                <div class="row">
+
+                    <div class="col-4">
+                            <img class="card-img" src="<%= camps[i].image %> " alt="image of campground">
+                
+                    </div>
+                <div class="col-8">
+                
+                
+                    <h5 class="card-title"><%= camps[i].title %> </h5>
+                    <p class="card-text"><%= camps[i].description %> </p>
+                    <a href="/campgrounds/<%= camps[i]._id %> " class="btn btn-primary"><%= camps[i].title %> </a>
+                    
+                </div>
+                
+                </div>
+            </div>
+           
+      <% } %>   
+        
+        
+        
+      
+        
+
+    
